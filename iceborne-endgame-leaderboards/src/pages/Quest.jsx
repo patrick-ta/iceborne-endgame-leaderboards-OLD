@@ -3,6 +3,7 @@ import { db } from "../firebase"
 import { collection, query, where, orderBy, getDocs } from "firebase/firestore";
 import { useParams } from 'react-router-dom';
 import SpeedrunTable from "../components/SpeedrunTable";
+import Header from "../components/Header";
 
 function Quest() {
     const [quest, setQuest] = useState({});
@@ -22,6 +23,7 @@ function Quest() {
 
     return (
         <>
+        <Header></Header>
         <h1>{quest.questName}</h1>
         <SpeedrunTable questName={quest.questName}/> 
         </>

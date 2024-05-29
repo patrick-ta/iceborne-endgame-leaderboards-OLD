@@ -12,8 +12,9 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
-      <Route index path="/home" element={<Home/>}></Route>
-      <Route index path="/quest/:questNameParam" element={<Quest/>}></Route>
+      <Route index path="/" element={<Home/>}></Route>
+      <Route index path="/quests" element={<Home/>}></Route>
+      <Route index path="/quests/:questNameParam" element={<Quest/>}></Route>
     </Routes>
     </BrowserRouter>
   )

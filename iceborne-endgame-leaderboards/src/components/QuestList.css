@@ -1,0 +1,42 @@
+.title {
+    padding-left: 3rem;
+    padding-bottom: 2rem;
+}
+
+.quest {
+    display: flex;
+    margin-left: 3rem;
+    margin-bottom: 1rem;
+    padding: 10px;
+    width: 650px;
+    border: 2px solid gray;
+    background-color: #242424;
+    transition: border-color 0.2s, background-color 0.2s;
+    cursor: pointer;
+}
+
+.quest:hover {
+    border-color: rgb(229, 229, 229);
+    background-color: rgb(27, 27, 27);
+}
+
+.questImage {
+    width: 100px;
+    height: 100px;
+}
+
+.link{
+    padding-top: 15px;
+    padding-left: 20px;
+    letter-spacing: .1rem;
+}
+
+.link h2 {
+    font-size:larger;
+}
+
+.link h1 {
+    padding-top: 5px;
+    font-size: 2rem;
+    font-weight:600;
+}
