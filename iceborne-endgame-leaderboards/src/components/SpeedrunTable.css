@@ -1,0 +1,39 @@
+.leaderboard {
+    padding-left: 3rem;
+}
+
+.filters {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+select {
+    margin-right: 40px;
+    appearance: none;
+}
+button {
+    margin-right: 10px;
+}
+
+table {
+    min-width: 700px;
+}
+
+th {
+    padding-bottom: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+td {
+    padding-top: 8px;
+}
+
+.small-width {
+    width:100px
+}
+.medium-width {
+    width:180px
+}
+.large-width {
+    width:270px
+}

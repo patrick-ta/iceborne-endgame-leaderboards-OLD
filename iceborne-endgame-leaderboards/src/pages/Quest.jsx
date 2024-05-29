@@ -24,7 +24,6 @@ function Quest() {
     return (
         <>
         <Header></Header>
-        <h1>{quest.questName}</h1>
         <SpeedrunTable questName={quest.questName}/> 
         </>
     )
