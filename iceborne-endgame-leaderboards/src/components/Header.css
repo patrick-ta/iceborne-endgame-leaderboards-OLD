@@ -3,17 +3,29 @@
     align-items: center;
     height: 65px;
     background-color: #313131;
+    justify-content: space-between;
     margin-bottom: 1.5rem;
 }
 
-.header h1, h2 {
+.header-left {
+    display: flex;
+    align-items: center;    
+}
+
+.header-left h1, h2 {
     font-weight: normal;
     padding-right: 30px;
 }
-.header h1 {
+.header-left h1 {
     font-size: 1.6em;
     padding-left: 20px;
 }
-.header h2 {
+.header-left h2 {
     font-size: 1.3em;
+}
+
+.header-right h2 {
+    font-weight: normal;
+    font-size: 1.3em;
+    margin-right: 1rem;
 }
