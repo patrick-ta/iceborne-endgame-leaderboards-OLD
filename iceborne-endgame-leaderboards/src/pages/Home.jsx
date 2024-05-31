@@ -4,7 +4,7 @@ import Header from "../components/Header";
 function Home() {
     return (
         <>
-        <Header></Header>
+        {/* <Header></Header> */}
         <QuestList></QuestList>
         </>
     )

@@ -1,8 +1,12 @@
 import { useState } from "react";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
+import { Navigate } from "react-router-dom";
 import Header from "../components/Header";
 import "./Login.css"
 
-function Login() {
+
+const Login = ({user}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isSignUpActive, setIsSignUpActive] = useState(false);
@@ -11,11 +15,31 @@ function Login() {
     }
 
     const handleSignUp = () => {
-        if (!email || !password) console.log("a");
+        if (!email || !password) return;
+        createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
+            const user = userCredential.user;
+            console.log(user);
+        }).catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode, errorMessage)
+        })
     }
 
     const handleSignIn = () => {
-        if (!email || !password) console.log("a");
+        if (!email || !password) return;
+        signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
+            const user = userCredential.user;
+            console.log(user);
+        }).catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode, errorMessage)
+        })
+    }
+
+    if (user) {
+        return <Navigate to="/quests"></Navigate>
     }
 
     const handleEmailChange = (event) => setEmail(event.target.value);
@@ -23,7 +47,7 @@ function Login() {
 
     return (
         <>
-        <Header></Header>
+        {/* <Header></Header> */}
         <form>
             {isSignUpActive && <h1 className="title">Sign Up</h1>}
             {!isSignUpActive && <h1 className="title">Login</h1>}

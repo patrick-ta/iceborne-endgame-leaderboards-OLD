@@ -23,7 +23,7 @@ function Quest() {
 
     return (
         <>
-        <Header></Header>
+        {/* <Header></Header> */}
         <SpeedrunTable questName={quest.questName}/> 
         </>
     )

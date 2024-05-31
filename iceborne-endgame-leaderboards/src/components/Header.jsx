@@ -1,7 +1,20 @@
+import { signOut } from 'firebase/auth';
 import './Header.css'
 import { Link } from "react-router-dom"
+import { auth } from '../firebase';
 
-function Header() {
+const Header = ({user}) => {
+    if (!user) {
+        console.log("a")
+    }
+    else{
+        console.log(user);
+    }
+
+    const handleSignOut = () => {
+        signOut(auth).then(() => console.log("Signed Out")).catch((error)=>console.log(error));
+    }
+
     return (
         <>
             <div className='header'>
@@ -12,7 +25,8 @@ function Header() {
                     <h2>Submit</h2>
                 </div>
                 <div className='header-right'>
-                    <Link to="/login"><h2>Login</h2></Link>
+                    {!user && <Link to="/login"><h2>Login</h2></Link>}
+                    {user && <a onClick={handleSignOut}>Log out</a>}
                 </div>
             </div>
             
