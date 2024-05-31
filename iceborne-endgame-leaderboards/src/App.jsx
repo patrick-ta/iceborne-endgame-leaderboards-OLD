@@ -4,6 +4,9 @@ import Home from './pages/Home'
 import Quest from './pages/Quest'
 import Login from './pages/Login'
 import Header from './components/Header'
+import Unauthorized from './pages/Unauthorized'
+import Submit from './pages/Submit'
+import UserRoute from './components/UserRoute'
 import './App.css'
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from './firebase'
@@ -37,6 +40,12 @@ function App() {
       <Route index path="/quests" element={<Home/>}></Route>
       <Route index path="/quests/:questNameParam" element={<Quest/>}></Route>
       <Route index path="/login" element={<Login user={user}/>}></Route>
+      <Route index path="/unauthorized" element={<Unauthorized/>}></Route>
+      <Route index path="/submit" element={
+        <UserRoute user={user}>
+          <Submit/>
+        </UserRoute>
+      }></Route>
     </Routes>
     </BrowserRouter>
   )

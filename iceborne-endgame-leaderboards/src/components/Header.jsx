@@ -22,7 +22,7 @@ const Header = ({user}) => {
                     <h1>MHW Iceborne Endgame Leaderboards</h1>
                     <Link to="/quests"><h2>Quests</h2></Link>
                     <h2>Rules</h2>
-                    <h2>Submit</h2>
+                    <Link to="/submit"><h2>Submit</h2></Link>
                 </div>
                 <div className='header-right'>
                     {!user && <Link to="/login">Login</Link>}

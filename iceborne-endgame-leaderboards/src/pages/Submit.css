@@ -1,0 +1,48 @@
+.run-details {
+    margin-left: 3rem;
+}
+
+.run-details h1{
+    padding-bottom: 2rem;
+}
+
+.run-details input{
+    display: block;
+}
+
+.run-details select {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 15px;
+    padding-right: 10ox;
+    appearance: none;
+}
+
+input[type="radio"] {
+    display: none; /* Hide the actual radio buttons */
+}
+
+label {
+    display: inline-block;
+    padding: 0.6em 1.2em;
+    border: 2px solid gray;
+    background-color: #242424;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+label:hover {
+    border-color: rgb(229, 229, 229);
+    background-color: rgb(27, 27, 27);
+}
+
+input[type="radio"]:checked + label {
+    border-color: rgb(229, 229, 229);
+    background-color: rgb(27, 27, 27);
+}
+
+.run-details button{
+    margin-top: 25px;
+}

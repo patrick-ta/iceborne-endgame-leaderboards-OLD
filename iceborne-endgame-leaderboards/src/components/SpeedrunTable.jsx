@@ -56,19 +56,19 @@ const SpeedrunTable = ({ questName }) => {
                 <select value={selectedWeapon} onChange={handleDropdownChange}>
                     <option value="All">All</option>
                     <option value="Greatsword">Greatsword</option>
-                    <option value="longsword">Longsword</option>
+                    <option value="Longsword">Longsword</option>
                     <option value="Sword and Shield">Sword and Shield</option>
-                    <option value="dual-blades">Dual Blades</option>
-                    <option value="hammer">Hammer</option>
-                    <option value="hunting-horn">Hunting Horn</option>
-                    <option value="lance">Lance</option>
-                    <option value="gunlance">Gunlance</option>
-                    <option value="switch-axe">Switch Axe</option>
-                    <option value="charge-blade">Charge Blade</option>
-                    <option value="insect-glaive">Insect Glaive</option>
-                    <option value="light-bowgun">Light Bowgun</option>
-                    <option value="heavy-bowgun">Heavy Bowgun</option>
-                <option value="bow">Bow</option>
+                    <option value="Dual Blades">Dual Blades</option>
+                    <option value="Hammer">Hammer</option>
+                    <option value="Hunting Horn">Hunting Horn</option>
+                    <option value="Lance">Lance</option>
+                    <option value="Gunlance">Gunlance</option>
+                    <option value="Switch Axe">Switch Axe</option>
+                    <option value="Charge Blade">Charge Blade</option>
+                    <option value="Insect Glaive">Insect Glaive</option>
+                    <option value="Light Bowgun">Light Bowgun</option>
+                    <option value="Heavy Bowgun">Heavy Bowgun</option>
+                    <option value="Bow">Bow</option>
                 </select>
                 <button onClick={filterFreestyle}>Freestyle</button>
                 <button onClick={filterTAWiki}>TA Wiki</button>
