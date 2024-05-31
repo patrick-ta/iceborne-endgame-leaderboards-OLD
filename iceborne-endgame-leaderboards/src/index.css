@@ -38,7 +38,7 @@ h1 {
   line-height: 1.1;
 }
 
-button, select {
+button, select, input {
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
@@ -49,7 +49,12 @@ button, select {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover, select:hover {
+button:hover, select:hover, input:hover {
   border-color: rgb(229, 229, 229);
   background-color: rgb(27, 27, 27);
+}
+input {
+  padding: 0.5em .9em;
+  width: 450px;
+  margin-bottom: 10px;
 }

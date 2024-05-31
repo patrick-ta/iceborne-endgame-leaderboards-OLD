@@ -1,0 +1,19 @@
+.title h1 {
+    padding-left: 3rem;
+    padding-bottom: 2rem;
+}
+
+.input input, .input button {
+    margin-left: 3rem;
+    display: block;
+}
+
+.input-flex {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+.input-flex a {
+    margin-left: 15px;
+    padding: 5px;
+}

@@ -12,7 +12,7 @@ function Header() {
                     <h2>Submit</h2>
                 </div>
                 <div className='header-right'>
-                    <h2>Login</h2>
+                    <Link to="/login"><h2>Login</h2></Link>
                 </div>
             </div>
             

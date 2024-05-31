@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import QuestList from './components/QuestList'
 import Home from './pages/Home'
 import Quest from './pages/Quest'
+import Login from './pages/Login'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <Route index path="/" element={<Home/>}></Route>
       <Route index path="/quests" element={<Home/>}></Route>
       <Route index path="/quests/:questNameParam" element={<Quest/>}></Route>
+      <Route index path="/login" element={<Login/>}></Route>
     </Routes>
     </BrowserRouter>
   )
