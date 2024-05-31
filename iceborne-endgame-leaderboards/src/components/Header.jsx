@@ -25,7 +25,7 @@ const Header = ({user}) => {
                     <h2>Submit</h2>
                 </div>
                 <div className='header-right'>
-                    {!user && <Link to="/login"><h2>Login</h2></Link>}
+                    {!user && <Link to="/login">Login</Link>}
                     {user && <a onClick={handleSignOut}>Log out</a>}
                 </div>
             </div>

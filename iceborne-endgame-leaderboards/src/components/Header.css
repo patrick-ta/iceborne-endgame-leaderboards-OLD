@@ -24,8 +24,10 @@
     font-size: 1.3em;
 }
 
-.header-right h2 {
+
+
+.header-right a {
     font-weight: normal;
     font-size: 1.3em;
-    margin-right: 1rem;
+    margin-right: 25px;
 }
