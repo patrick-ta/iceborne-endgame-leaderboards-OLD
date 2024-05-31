@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth, db } from "../firebase";
+import { addDoc, collection } from "firebase/firestore";
 import { Navigate } from "react-router-dom";
-import Header from "../components/Header";
 import "./Login.css"
 
 
@@ -16,9 +16,14 @@ const Login = ({user}) => {
 
     const handleSignUp = () => {
         if (!email || !password) return;
-        createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
+        createUserWithEmailAndPassword(auth, email, password).then(async (userCredential) => {
             const user = userCredential.user;
             console.log(user);
+            await addDoc(collection(db, "users"), {
+                uid: user.uid,
+                email: user.email,
+                role: "Guest"
+            })
         }).catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
