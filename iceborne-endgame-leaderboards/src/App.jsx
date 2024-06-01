@@ -41,6 +41,7 @@ function App() {
     <BrowserRouter>
     <Header user={user}></Header>
     <Routes>
+      <Route index path="/iceborne-endgame-leaderboards" element={<Home/>}></Route>
       <Route index path="/" element={<Home/>}></Route>
       <Route index path="/quests" element={<Home/>}></Route>
       <Route index path="/rules" element={<Rules/>}></Route>

@@ -16,7 +16,7 @@ const Header = ({user}) => {
                     <Link to="/quests"><h2>Quests</h2></Link>
                     <Link to="/rules"><h2>Rules</h2></Link>
                     <Link to="/submit"><h2>Submit</h2></Link>
-                    <Link to="/about"><h2>About</h2></Link>
+                    <Link to="/iceborne-endgame-leaderboards/about"><h2>About</h2></Link>
                 </div>
                 <div className='header-right'>
                     {!user && <Link to="/login">Login</Link>}
