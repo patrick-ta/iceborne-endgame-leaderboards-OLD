@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { db } from "../firebase";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, getDocs, addDoc, where, deleteDoc} from "firebase/firestore";
 import "./Submissions.css"
 
 function Submissions() {
@@ -21,8 +21,25 @@ function Submissions() {
         getSubmissions();
     }, []);
 
-    const acceptSubmission = (speedrun) => {
-        
+    const acceptSubmission = async (speedrun) => {
+        await addDoc(collection(db, "speedruns"), {
+            runner: speedrun.runner,
+            time: speedrun.time,
+            link: speedrun.link,
+            weapon: speedrun.weapon,
+            questName: speedrun.questName,
+            ruleset: speedrun.ruleset
+        })
+
+        const q = query(collection(db, "submissions"), 
+        where("link", "==", speedrun.link));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+            deleteDoc(doc.ref);
+        });
+
+        const updatedSubmissions = submissions.filter(submission => submission.link !== speedrun.link);
+        setSubmissions(updatedSubmissions);
     }
 
     return (

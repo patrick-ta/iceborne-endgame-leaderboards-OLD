@@ -11,6 +11,8 @@ function Submit() {
     const [quest, setQuest] = useState("");
     const [ruleset, setRuleset] = useState("");
     const [runSubmitted, setRunSubmitted] = useState(false);
+    const [emptyField, setEmptyField] = useState(false);
+    const [invalidTimeFormat, setInvalidTimeFormat] = useState(false);
 
     const handleRunnerChange = (event) => setRunner(event.target.value);
     const handleTimeChange = (event) => setTime(event.target.value);
@@ -20,6 +22,23 @@ function Submit() {
     const handleRulesetChange = (event) => setRuleset(event.target.value);
 
     const submitRun = async () => {
+        if (!runner || !time || !link || !weapon || !quest || !ruleset) {
+            setEmptyField(true);
+            setInvalidTimeFormat(false);
+            return;
+        }
+        else {
+            setEmptyField(false);
+        }
+        if (!isValidTimeFormat(time)) {
+            setInvalidTimeFormat(true);
+            setEmptyField(false);
+            return;
+        }
+        else{
+            setInvalidTimeFormat(false);
+        }
+
         await addDoc(collection(db, "submissions"), {
             runner: runner,
             time: time,
@@ -29,6 +48,36 @@ function Submit() {
             ruleset: ruleset
         })
         setRunSubmitted(true);
+    }
+
+    function isValidTimeFormat(timeString) {
+        // Regular expression to match M:SS:MS or MM:SS:MS format
+        const timeRegex = /^([1-9]|[1-5]\d):\d{2}:\d{2}$/;
+    
+        // Check if the timeString matches the regex pattern
+        if (!timeRegex.test(timeString)) {
+            return false;
+        }
+    
+        // Split the time string into components
+        const components = timeString.split(':').map(Number);
+    
+        // Handle the case of M:SS:MS format
+        let minutes = components[0];
+    
+        let [seconds, milliseconds] = components.slice(1);
+    
+        // Check if the components are valid
+        if (seconds < 0 || seconds >= 60 || milliseconds < 0 || milliseconds >= 100) {
+            return false;
+        }
+    
+        // If milliseconds has more than 2 digits, return false
+        if (milliseconds >= 100) {
+            return false;
+        }
+    
+        return true;
     }
 
     if (runSubmitted) {
@@ -78,6 +127,18 @@ function Submit() {
                 <label htmlFor="TA Wiki">TA Wiki</label>
             </div>
             <button type="button" onClick={submitRun}>Submit</button>
+            {emptyField && <h2>There are empty fields!</h2>}
+            {invalidTimeFormat && 
+            <>
+                <h2>Wrong time format! Times must be submitted in the format MM:SS:MS.</h2>
+                <ul>
+                    <li>Ex: 5:00:00 &#10004;</li>
+                    <li>Ex: 15:00:00 &#10004;</li>
+                    <li>Ex: 05:00:00 &#10008;</li>
+                    <li>Ex: 5'00"00 &#10008;</li>
+                </ul>
+            </>
+            }
         </div>
         </>
     )

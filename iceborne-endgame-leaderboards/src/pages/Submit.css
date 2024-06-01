@@ -6,6 +6,15 @@
     padding-bottom: 2rem;
 }
 
+.run-details h2 {
+    margin-top: 15px;
+    font-size: larger;
+}
+
+.run-details ul {
+    list-style: none
+}
+
 .run-details input{
     display: block;
 }
