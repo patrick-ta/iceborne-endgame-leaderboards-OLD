@@ -42,6 +42,18 @@ function Submissions() {
         setSubmissions(updatedSubmissions);
     }
 
+    const deleteSubmission = async (speedrun) => {
+        const q = query(collection(db, "submissions"), 
+        where("link", "==", speedrun.link));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+            deleteDoc(doc.ref);
+        });
+
+        const updatedSubmissions = submissions.filter(submission => submission.link !== speedrun.link);
+        setSubmissions(updatedSubmissions);
+    }
+
     return (
         <div className="submissions">
             <h1>Submissions</h1>
@@ -69,7 +81,7 @@ function Submissions() {
                     <td>{speedrun.ruleset}</td>
                     <td>
                         <button onClick={() => acceptSubmission(speedrun)}>Accept</button>
-                        <button>Delete</button>
+                        <button onClick={() => deleteSubmission(speedrun)}>Delete</button>
                     </td>
                     </tr>
                 ))}
