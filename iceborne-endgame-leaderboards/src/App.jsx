@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter, Routes, Route} from 'react-router-dom'
+import { HashRouter, Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
 import Quest from './pages/Quest'
 import Rules from './pages/Rules'
@@ -38,10 +38,9 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+    <HashRouter>
     <Header user={user}></Header>
     <Routes>
-      <Route index path="/iceborne-endgame-leaderboards" element={<Home/>}></Route>
       <Route index path="/" element={<Home/>}></Route>
       <Route index path="/quests" element={<Home/>}></Route>
       <Route index path="/rules" element={<Rules/>}></Route>
@@ -60,7 +59,7 @@ function App() {
         </ModeratorRoute>
       }></Route>
     </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
