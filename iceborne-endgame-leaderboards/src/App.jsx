@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter, Routes, Route, BrowserRouter} from 'react-router-dom'
+import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
 import Quest from './pages/Quest'
 import Rules from './pages/Rules'
