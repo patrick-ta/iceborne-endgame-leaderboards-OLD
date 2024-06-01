@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { HashRouter, Routes, Route} from 'react-router-dom'
+import { BrowserRouter, Routes, Route, BrowserRouter} from 'react-router-dom'
 import Home from './pages/Home'
 import Quest from './pages/Quest'
 import Rules from './pages/Rules'
@@ -38,7 +38,7 @@ function App() {
   }
 
   return (
-    <HashRouter>
+    <BrowserRouter>
     <Header user={user}></Header>
     <Routes>
       <Route index path="/" element={<Home/>}></Route>
@@ -59,7 +59,7 @@ function App() {
         </ModeratorRoute>
       }></Route>
     </Routes>
-    </HashRouter>
+    </BrowserRouter>
   )
 }
 
