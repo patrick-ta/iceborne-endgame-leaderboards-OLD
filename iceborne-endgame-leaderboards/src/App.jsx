@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
 import Quest from './pages/Quest'
+import Rules from './pages/Rules'
+import About from './pages/About'
 import Login from './pages/Login'
 import Header from './components/Header'
 import Unauthorized from './pages/Unauthorized'
@@ -41,6 +43,8 @@ function App() {
     <Routes>
       <Route index path="/" element={<Home/>}></Route>
       <Route index path="/quests" element={<Home/>}></Route>
+      <Route index path="/rules" element={<Rules/>}></Route>
+      <Route index path="/about" element={<About/>}></Route>
       <Route index path="/quests/:questNameParam" element={<Quest/>}></Route>
       <Route index path="/login" element={<Login user={user}/>}></Route>
       <Route index path="/unauthorized" element={<Unauthorized/>}></Route>

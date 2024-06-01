@@ -38,11 +38,9 @@ const UserRoute = ({children, user}) => {
     }
 
     if (userRole !== "Moderator") {
-        console.log("You don't have access");
         return <Navigate to="/quests" />;
     }
 
-    console.log("You have access");
     return children;
 }
 

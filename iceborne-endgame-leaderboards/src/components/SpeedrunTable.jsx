@@ -22,7 +22,6 @@ const SpeedrunTable = ({ questName }) => {
                 const tempSpeedruns = [];
                 querySnapshot.forEach((doc) => {
                     tempSpeedruns.push(doc.data());
-                    console.log(doc.data());
                 });
                 tempSpeedruns.sort((a, b) => timeToMilliseconds(a.time) - timeToMilliseconds(b.time));
                 setSpeedruns(tempSpeedruns);
@@ -43,7 +42,6 @@ const SpeedrunTable = ({ questName }) => {
       
     const filterTAWiki = () => {
         const filtered = speedruns.filter(speedrun => speedrun.ruleset === "TA Wiki");
-        console.log(filtered);
         setFilteredSpeedruns(filtered);
     };
     

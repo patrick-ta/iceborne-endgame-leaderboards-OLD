@@ -27,8 +27,6 @@ function QuestList() {
         getQuests();
     }, []);
 
-    console.log(quests);
-
     return (
         <>
         <h1 className="title">Quests</h1>

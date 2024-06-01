@@ -13,7 +13,6 @@ function Submissions() {
             const tempSpeedruns = [];
             querySnapshot.forEach((doc) => {
                 tempSpeedruns.push(doc.data());
-                console.log(doc.data());
             });
             setSubmissions(tempSpeedruns);
         };

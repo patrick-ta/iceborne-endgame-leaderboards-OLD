@@ -19,7 +19,6 @@ const Login = ({user}) => {
         const email = username + "@whateverdomain.com"
         createUserWithEmailAndPassword(auth, email, password).then(async (userCredential) => {
             const user = userCredential.user;
-            console.log(user);
             await addDoc(collection(db, "users"), {
                 uid: user.uid,
                 username: username,
@@ -37,7 +36,6 @@ const Login = ({user}) => {
         const email = username + "@whateverdomain.com"
         signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
             const user = userCredential.user;
-            console.log(user);
         }).catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
