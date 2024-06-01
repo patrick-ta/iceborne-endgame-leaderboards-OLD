@@ -7,7 +7,7 @@ import "./Login.css"
 
 
 const Login = ({user}) => {
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [isSignUpActive, setIsSignUpActive] = useState(false);
     const handleMethodChange = () => {
@@ -15,7 +15,8 @@ const Login = ({user}) => {
     }
 
     const handleSignUp = () => {
-        if (!email || !password) return;
+        if (!username || !password) return;
+        const email = username + "@whateverdomain.com"
         createUserWithEmailAndPassword(auth, email, password).then(async (userCredential) => {
             const user = userCredential.user;
             console.log(user);
@@ -32,7 +33,8 @@ const Login = ({user}) => {
     }
 
     const handleSignIn = () => {
-        if (!email || !password) return;
+        if (!username || !password) return;
+        const email = username + "@whateverdomain.com"
         signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
             const user = userCredential.user;
             console.log(user);
@@ -47,7 +49,7 @@ const Login = ({user}) => {
         return <Navigate to="/quests"></Navigate>
     }
 
-    const handleEmailChange = (event) => setEmail(event.target.value);
+    const handleUsernameChange = (event) => setUsername(event.target.value);
     const handlePasswordChange = (event) => setPassword(event.target.value);
 
     return (
@@ -58,7 +60,7 @@ const Login = ({user}) => {
             {!isSignUpActive && <h1 className="title">Login</h1>}
             
             <div className="input">
-                <input type="text" placeholder="E-mail address" onChange={handleEmailChange}/> 
+                <input type="text" placeholder="Username" onChange={handleUsernameChange}/> 
                 <input type="password" placeholder="Password" onChange={handlePasswordChange}/>
                 <div className="input-flex">
                     {isSignUpActive && <button type="button" onClick={handleSignUp}>Sign Up</button>}
