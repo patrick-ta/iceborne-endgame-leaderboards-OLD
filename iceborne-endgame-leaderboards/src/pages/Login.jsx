@@ -22,7 +22,7 @@ const Login = ({user}) => {
             console.log(user);
             await addDoc(collection(db, "users"), {
                 uid: user.uid,
-                email: user.email,
+                username: username,
                 role: "Guest"
             })
         }).catch((error) => {
