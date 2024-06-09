@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { db } from "../firebase";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, where, getDocs, onSnapshot } from "firebase/firestore";
 import "./SpeedrunTable.css"
 
 const SpeedrunTable = ({ questName }) => { 
@@ -15,21 +15,31 @@ const SpeedrunTable = ({ questName }) => {
     }
 
     useEffect(() => {
+        let unsubscribe = () => {}; // Initialize unsubscribe function
+
         const getSpeedruns = async () => {
             if (questName) {
                 const q = query(collection(db, "speedruns"), where("questName", "==", questName));
-                const querySnapshot = await getDocs(q);
-                const tempSpeedruns = [];
-                querySnapshot.forEach((doc) => {
-                    tempSpeedruns.push(doc.data());
+
+                unsubscribe = onSnapshot(q, (snapshot) => {
+                    const tempSpeedruns = [];
+                    snapshot.forEach((doc) => {
+                        tempSpeedruns.push(doc.data());
+                    });
+                    tempSpeedruns.sort((a, b) => timeToMilliseconds(a.time) - timeToMilliseconds(b.time));
+                    setSpeedruns(tempSpeedruns);
+                    console.log(speedruns);
+                    setFilteredSpeedruns(tempSpeedruns);
                 });
-                tempSpeedruns.sort((a, b) => timeToMilliseconds(a.time) - timeToMilliseconds(b.time));
-                setSpeedruns(tempSpeedruns);
-                setFilteredSpeedruns(tempSpeedruns);
             }
         };
 
         getSpeedruns();
+
+        // Cleanup function
+        return () => {
+            unsubscribe(); // Unsubscribe from snapshot listener when component unmounts
+        };
     }, [questName]);
 
     const handleDropdownChange = (e) => {

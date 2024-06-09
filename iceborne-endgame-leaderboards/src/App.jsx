@@ -38,7 +38,7 @@ function App() {
   }
 
   return (
-    <HashRouter>
+    <BrowserRouter>
     <Header user={user}></Header>
     <Routes>
       <Route index path="/iceborne-endgame-leaderboards" element={<Home/>}></Route>
@@ -60,7 +60,7 @@ function App() {
         </ModeratorRoute>
       }></Route>
     </Routes>
-    </HashRouter>
+    </BrowserRouter>
   )
 }
 
