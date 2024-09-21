@@ -1,1 +1,1 @@
-A page that documents endgame speedruns for Monster Hunter World: Iceborne.
+A page that documents endgame speedruns for Monster Hunter World: Iceborne
